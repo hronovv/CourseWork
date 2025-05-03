@@ -10,6 +10,8 @@ class StartWidget : public QWidget {
     Q_OBJECT
 public:
     explicit StartWidget(QWidget *parent = nullptr);
+    signals:
+    void backButtonClicked();
 };
 
 #endif // STARTWIDGET_H

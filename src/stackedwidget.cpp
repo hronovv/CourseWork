@@ -24,6 +24,11 @@ StackedWidget::StackedWidget(QWidget *parent) : QStackedWidget(parent) {
         setCurrentIndex(kStartIndex);
     });
 
+    connect(startWidget_.get(), &StartWidget::backButtonClicked, this, [this]() {
+        setCurrentIndex(kMenuIndex);
+    });
+
+
 }
 
 
