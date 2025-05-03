@@ -18,4 +18,9 @@ MenuWidget::MenuWidget(QWidget *parent) : QWidget(parent) {
     connect(settingsButton, &QPushButton::clicked, this, [this]() {
         emit settingsButtonClicked();
     });
+
+    connect(startButton, &QPushButton::clicked, this, [this]() {
+    emit startButtonClicked();
+    });
+
 }

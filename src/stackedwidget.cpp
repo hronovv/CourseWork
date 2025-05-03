@@ -1,25 +1,27 @@
 #include "stackedwidget.h"
 
 StackedWidget::StackedWidget(QWidget *parent) : QStackedWidget(parent) {
-    menuWidget = std::make_unique<MenuWidget>(this);
-    settingsWidget = std::make_unique<SettingsWidget>(this);
+    menuWidget_ = std::make_unique<MenuWidget>(this);
+    settingsWidget_ = std::make_unique<SettingsWidget>(this);
+    startWidget_ = std::make_unique<StartWidget>(this);
 
-    addWidget(menuWidget.get());
-    addWidget(settingsWidget.get());
-    // addWidget();
+
+    addWidget(menuWidget_.get());
+    addWidget(settingsWidget_.get());
+    addWidget(startWidget_.get());
 
     setCurrentIndex(kMenuIndex);
 
-    connect(menuWidget.get(), &MenuWidget::settingsButtonClicked, this, [this]() {
+    connect(menuWidget_.get(), &MenuWidget::settingsButtonClicked, this, [this]() {
     setCurrentIndex(kSettingsIndex);
     });
 
-    connect(settingsWidget.get(), &SettingsWidget::backButtonClicked, this, [this]() {
+    connect(settingsWidget_.get(), &SettingsWidget::backButtonClicked, this, [this]() {
     setCurrentIndex(kMenuIndex);
     });
 
-    connect(menuWidget.get(), &MenuWidget::startButtonClicked, this, [this]() {
-    setCurrentIndex(kStartIndex);
+    connect(menuWidget_.get(), &MenuWidget::startButtonClicked, this, [this]() {
+        setCurrentIndex(kStartIndex);
     });
 
 }
