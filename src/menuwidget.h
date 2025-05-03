@@ -4,7 +4,6 @@
 #include "../include/common.h"
 #include "../include/constants.h"
 #include "../include/qstyles.h"
-#include "settingswidget.h"
 
 class MenuWidget : public QWidget {
     Q_OBJECT
