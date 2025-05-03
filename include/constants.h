@@ -8,8 +8,7 @@ constexpr const char* kCourseWorkName = "Simulation of diseases in the human bod
 constexpr int kWindowSize = 1600;
 constexpr int kSettingsButtonWidth = 200;
 constexpr int kSettingsButtonHeight = 55;
-constexpr short kMenuIndex = 0;
-constexpr short kSettingsIndex = 1;
-constexpr short kStartIndex = 2;
+constexpr int kAnimationWidgetDurationMs = 200;
+constexpr int kTransitionOffset = 30;
 
 #endif //CONSTANTS_H

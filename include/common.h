@@ -8,6 +8,9 @@
 #include <QApplication>
 #include <QPushButton>
 #include "QCheckBox"
+#include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
+#include <QParallelAnimationGroup>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 #include "QGridLayout"

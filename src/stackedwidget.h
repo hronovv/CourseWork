@@ -14,6 +14,8 @@ class StackedWidget : public QStackedWidget {
 public:
     explicit StackedWidget(QWidget *parent = nullptr);
 
+    void animateWidgetTransition(QWidget* targetWidget);
+
 private:
     std::unique_ptr<MenuWidget> menuWidget_;
     std::unique_ptr<SettingsWidget> settingsWidget_;

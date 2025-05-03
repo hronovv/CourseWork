@@ -9,12 +9,12 @@ SettingsWidget::SettingsWidget(QWidget *parent) : QWidget(parent) {
 
     auto* gridLayout = new QGridLayout();
 
-    auto* side_effects_from_medications = new QCheckBox("Enable side effects from medications");
+    side_effects_from_medications_ = new QCheckBox("Enable side effects from medications");
     auto* checkBox2 = new QCheckBox("Option 2");
     auto* checkBox3 = new QCheckBox("Option 3");
     auto* checkBox4 = new QCheckBox("Option 4");
 
-    gridLayout->addWidget(side_effects_from_medications, 0, 0);
+    gridLayout->addWidget(side_effects_from_medications_, 0, 0);
     gridLayout->addWidget(checkBox2, 0, 1);
     gridLayout->addWidget(checkBox3, 1, 0);
     gridLayout->addWidget(checkBox4, 1, 1);
@@ -31,4 +31,8 @@ SettingsWidget::SettingsWidget(QWidget *parent) : QWidget(parent) {
     });
 
     settingsLayout->setAlignment(Qt::AlignTop | Qt::AlignCenter);
+}
+
+bool SettingsWidget::isSideEffectsEnabled() const {
+    return side_effects_from_medications_->isChecked();
 }
