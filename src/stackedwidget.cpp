@@ -11,6 +11,7 @@ StackedWidget::StackedWidget(QWidget *parent) : QStackedWidget(parent) {
 
     setCurrentWidget(menuWidget_.get());
 
+
     connect(menuWidget_.get(), &MenuWidget::settingsButtonClicked, this, [this]() {
         animateWidgetTransition(settingsWidget_.get());
         setCurrentWidget(settingsWidget_.get());
@@ -60,7 +61,3 @@ void StackedWidget::animateWidgetTransition(QWidget* targetWidget) {
     fadeOut->start(QAbstractAnimation::DeleteWhenStopped);
     fadeIn->start(QAbstractAnimation::DeleteWhenStopped);
 }
-
-
-
-

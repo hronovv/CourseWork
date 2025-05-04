@@ -7,14 +7,15 @@
 
 #include <QApplication>
 #include <QPushButton>
-#include "QCheckBox"
+#include <QCheckBox>
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
 #include <QParallelAnimationGroup>
 #include <QStackedWidget>
 #include <QVBoxLayout>
-#include "QGridLayout"
+#include <QGridLayout>
 #include <QLabel>
+#include <QComboBox>
 #include <iostream>
 #include <memory>
 

@@ -33,7 +33,7 @@ const QString textStyle = R"(
 
 const QString labelTextStyle = R"(
     font-size: 17px;
-    color: #FFFFFF;  /* Темный почти черный цвет текста */
+    color: #FFFFFF;  /* Белый цвет текста */
 )";
 
 const QString textEditStyle = R"(
@@ -43,4 +43,3 @@ const QString textEditStyle = R"(
     border: 2px solid #D8CFC4;  /* Бежевый цвет рамки */
     border-radius: 5px;
 )";
-
