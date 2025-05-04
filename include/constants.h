@@ -14,7 +14,7 @@ constexpr const char* kDescription =
     "It's an immersive, gamified journey through health, illness, and recovery that reveals\n"
     "just how complex and fascinating the human body really is.";
 
-constexpr const char* humanLabelStyle = R"(
+constexpr const char* pictureLabelStyle = R"(
     QLabel {
         border: 2px solid #9E7B52;
         border-radius: 10px;
@@ -22,6 +22,33 @@ constexpr const char* humanLabelStyle = R"(
         background-color: #F6F1EC;
     }
 )";
+
+const QMap<QString, QString> diseaseImages = {
+    {"Flu", "/Users/hronov/Documents/CourseWork/img/flu.png"},
+    {"COVID-19", "/Users/hronov/Documents/CourseWork/img/covid-19.png"},
+    {"Diabetes", "/Users/hronov/Documents/CourseWork/img/diabetes.png"},
+    {"Hypertension", "/Users/hronov/Documents/CourseWork/img/hypertension.png"},
+    {"Cancer", "/Users/hronov/Documents/CourseWork/img/cancer.png"},
+    {"Asthma", "/Users/hronov/Documents/CourseWork/img/asthma.png"},
+    {"Alzheimer’s disease", "/Users/hronov/Documents/CourseWork/img/alzheimer.png"},
+};
+
+const QMap<QString, QString> diseaseDescriptions = {
+    {"Flu", "• Flu is a contagious respiratory illness caused by influenza viruses.\n\n• "
+            "It spreads easily through droplets from coughs or sneezes."},
+    {"COVID-19", "• COVID-19 is caused by SARS-CoV-2, leading to respiratory issues.\n\n• "
+                 "It can spread through close contact or airborne transmission."},
+    {"Diabetes", "• Diabetes is a chronic condition that affects how your body processes blood sugar.\n\n•"
+                 " It can lead to serious complications like heart disease and nerve damage."},
+    {"Hypertension", "• Hypertension is high blood pressure that increases the risk of heart disease.\n\n•"
+                     " It often has no symptoms but can lead to severe health problems over time."},
+    {"Cancer", "• Cancer is a group of diseases involving abnormal cell growth.\n\n• "
+               "It can affect any part of the body and may spread to other tissues."},
+    {"Asthma", "• Asthma is a condition in which your airways narrow and swell, producing extra mucus.\n\n• "
+               "It can cause difficulty breathing and wheezing."},
+    {"Alzheimer’s disease", "• Alzheimer’s disease is a progressive neurological disorder that causes brain cells to"
+                            " die.\n\n• It leads to memory loss and cognitive decline."},
+};
 
 
 constexpr short kWindowSize = 1600;
@@ -35,6 +62,8 @@ constexpr short kStartMenuTopBottomMargins = 15;
 constexpr short kStartMenuLayoutSpacing = 15;
 constexpr short kMaleFemaleLabelWidth = 500;
 constexpr short kMaleFemaleLabelHeight = 600;
+constexpr short kDiseaseLabelWidth = 255;
+constexpr short kDiseaseLabelHeight = 255;
 constexpr short kStartMenuLineWidth = 4;
 constexpr short kMenuLayoutSpacing = 100;
 

@@ -5,48 +5,48 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
     mainLayout->setAlignment(Qt::AlignLeft);
     mainLayout->setSpacing(kStartMenuSpacing);
 
-    auto* pregameGridLayout = new QGridLayout();
-    pregameGridLayout->setContentsMargins(kStartMenuLeftRightMargins,kStartMenuTopBottomMargins,
+    auto* pregameLayout = new QVBoxLayout();
+    pregameLayout->setContentsMargins(kStartMenuLeftRightMargins,kStartMenuTopBottomMargins,
         kStartMenuLeftRightMargins,kStartMenuTopBottomMargins);
-    pregameGridLayout->setSpacing(kStartMenuLayoutSpacing);
-    pregameGridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    pregameLayout->setSpacing(kStartMenuLayoutSpacing);
+    pregameLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
     auto* startConfigurationLabel = new QLabel("Initial Conditions",this);
     startConfigurationLabel->setAlignment(Qt::AlignCenter);
     startConfigurationLabel->setStyleSheet(labelHeaderStyle);
-    pregameGridLayout->addWidget(startConfigurationLabel,0,0);
+    pregameLayout->addWidget(startConfigurationLabel);
 
     auto* humanLabel = new QLabel(this);
     QPixmap pixmap("/Users/hronov/Documents/CourseWork/img/male_female.png");
     pixmap.setDevicePixelRatio(devicePixelRatioF());
     humanLabel->setPixmap(pixmap.scaled(kMaleFemaleLabelWidth, kMaleFemaleLabelHeight, Qt::KeepAspectRatio,
         Qt::SmoothTransformation));;
-    humanLabel->setStyleSheet(humanLabelStyle);
+    humanLabel->setStyleSheet(pictureLabelStyle);
 
 
-    pregameGridLayout->addWidget(humanLabel, 1, 0);
+    pregameLayout->addWidget(humanLabel);
 
     auto* genderLabel = new QLabel("Gender:", this);
     genderLabel->setStyleSheet(labelTextStyle);
-    pregameGridLayout->addWidget(genderLabel, 2, 0);
+    pregameLayout->addWidget(genderLabel);
 
     auto* genderComboBox = new QComboBox(this);
     genderComboBox->addItems({"Male", "Female"});
     genderComboBox->setStyleSheet(comboBoxStyle);
-    pregameGridLayout->addWidget(genderComboBox, 3, 0);
+    pregameLayout->addWidget(genderComboBox);
 
     auto* difficultyLabel = new QLabel("Difficulty:", this);
     difficultyLabel->setStyleSheet(labelTextStyle);
-    pregameGridLayout->addWidget(difficultyLabel, 4, 0);
+    pregameLayout->addWidget(difficultyLabel);
 
     auto* difficultyComboBox = new QComboBox(this);
     difficultyComboBox->addItems({"Easy", "Medium", "Hard"});
     difficultyComboBox->setStyleSheet(comboBoxStyle);
-    pregameGridLayout->addWidget(difficultyComboBox, 5, 0);
+    pregameLayout->addWidget(difficultyComboBox);
 
     auto* diseaseLabel = new QLabel("Disease:",this);
     diseaseLabel->setStyleSheet(labelTextStyle);
-    pregameGridLayout->addWidget(diseaseLabel, 6, 0);
+    pregameLayout->addWidget(diseaseLabel);
 
     auto* diseaseComboBox = new QComboBox(this);
     diseaseComboBox->addItems({
@@ -59,53 +59,77 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
         "Alzheimer’s disease"
     });
     diseaseComboBox->setStyleSheet(comboBoxStyle);
-    pregameGridLayout->addWidget(diseaseComboBox,7,0);
+    pregameLayout->addWidget(diseaseComboBox);
 
     auto* ageLabel = new QLabel("Age group:", this);
     ageLabel->setStyleSheet(labelTextStyle);
-    pregameGridLayout->addWidget(ageLabel, 8, 0);
+    pregameLayout->addWidget(ageLabel);
 
     auto* ageComboBox = new QComboBox(this);
     ageComboBox->addItems({"Child", "Teenager", "Adult", "Elderly"});
     ageComboBox->setStyleSheet(comboBoxStyle);
-    pregameGridLayout->addWidget(ageComboBox, 9, 0);
+    pregameLayout->addWidget(ageComboBox);
 
 
     sideEffectsLabel_ = new QLabel(this);
-    pregameGridLayout->addWidget(sideEffectsLabel_, 10, 0);
+    pregameLayout->addWidget(sideEffectsLabel_);
 
     auto* backButton = new QPushButton("Back to Menu", this);
     backButton->setStyleSheet(buttonStyle);
-    pregameGridLayout->addWidget(backButton, 11, 0);
+    pregameLayout->addWidget(backButton);
 
     auto* line = new QFrame(this);
     line->setFrameShape(QFrame::VLine);
     line->setStyleSheet(StartLayoutLineStyle);
     line->setFixedWidth(kStartMenuLineWidth);
 
-    auto* simulationGridLayout = new QGridLayout();
-    simulationGridLayout->setContentsMargins(kStartMenuLeftRightMargins, kStartMenuTopBottomMargins,
+    auto* simulationLayout = new QVBoxLayout();
+    simulationLayout->setContentsMargins(kStartMenuLeftRightMargins, kStartMenuTopBottomMargins,
         kStartMenuLeftRightMargins, kStartMenuTopBottomMargins);
-    simulationGridLayout->setSpacing(kStartMenuSpacing);
-    simulationGridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    simulationLayout->setSpacing(kStartMenuLayoutSpacing);
+    simulationLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
 
-    auto* simulationSettingsLabel = new QLabel("About Disease",this);
-    simulationSettingsLabel->setAlignment(Qt::AlignCenter);
+    auto* simulationSettingsLabel = new QLabel("About Disease", this);
+    simulationSettingsLabel->setAlignment(Qt::AlignLeft);
     simulationSettingsLabel->setStyleSheet(labelHeaderStyle);
-    simulationGridLayout->addWidget(simulationSettingsLabel,0,0);
+    simulationLayout->addWidget(simulationSettingsLabel);
+
+    auto* diseaseImageLabel = new QLabel(this);
+    diseaseImageLabel->setFixedSize(kDiseaseLabelWidth, kDiseaseLabelHeight);
+    diseaseImageLabel->setScaledContents(true);
+    diseaseImageLabel->setStyleSheet(pictureLabelStyle);
+    simulationLayout->addWidget(diseaseImageLabel);
+
+    auto* diseaseDescriptionLabel = new QLabel(this);
+    diseaseDescriptionLabel->setWordWrap(true);
+    diseaseDescriptionLabel->setMaximumWidth(kDiseaseLabelWidth);
+    diseaseDescriptionLabel->setStyleSheet(labelTextStyle);
+    simulationLayout->addWidget(diseaseDescriptionLabel);
 
 
     connect(backButton, &QPushButton::clicked, this, [this]() {
         emit backButtonClicked();
     });
 
-
-
-    mainLayout->addLayout(pregameGridLayout);
+    mainLayout->addLayout(pregameLayout);
     mainLayout->addWidget(line);
-    mainLayout->addLayout(simulationGridLayout);
+    mainLayout->addLayout(simulationLayout);
     setLayout(mainLayout);
+
+
+    diseaseComboBox->setCurrentText("Flu");
+    QPixmap pixmap_default(diseaseImages.value("Flu"));
+    diseaseImageLabel->setPixmap(pixmap_default);
+    diseaseDescriptionLabel->setText(diseaseDescriptions.value("Flu"));
+
+    connect(diseaseComboBox, &QComboBox::currentTextChanged, this, [=](const QString& disease) {
+        QPixmap capture_pixmap(diseaseImages.value(disease));
+        diseaseImageLabel->setPixmap(capture_pixmap);
+        diseaseDescriptionLabel->setText(diseaseDescriptions.value(disease));
+    });
+
+
 }
 
 void StartWidget::updateSideEffectsStatus(bool sideEffectsEnabled) {
