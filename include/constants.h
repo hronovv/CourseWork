@@ -34,21 +34,37 @@ const QMap<QString, QString> diseaseImages = {
 };
 
 const QMap<QString, QString> diseaseDescriptions = {
-    {"Flu", "• Flu is a contagious respiratory illness caused by influenza viruses.\n\n• "
-            "It spreads easily through droplets from coughs or sneezes."},
-    {"COVID-19", "• COVID-19 is caused by SARS-CoV-2, leading to respiratory issues.\n\n• "
-                 "It can spread through close contact or airborne transmission."},
-    {"Diabetes", "• Diabetes is a chronic condition that affects how your body processes blood sugar.\n\n•"
-                 " It can lead to serious complications like heart disease and nerve damage."},
-    {"Hypertension", "• Hypertension is high blood pressure that increases the risk of heart disease.\n\n•"
-                     " It often has no symptoms but can lead to severe health problems over time."},
-    {"Cancer", "• Cancer is a group of diseases involving abnormal cell growth.\n\n• "
-               "It can affect any part of the body and may spread to other tissues."},
-    {"Asthma", "• Asthma is a condition in which your airways narrow and swell, producing extra mucus.\n\n• "
-               "It can cause difficulty breathing and wheezing."},
-    {"Alzheimer’s disease", "• Alzheimer’s disease is a progressive neurological disorder that causes brain cells to"
-                            " die.\n\n• It leads to memory loss and cognitive decline."},
+    {"Flu", "◆ Flu is a contagious respiratory illness caused by influenza viruses.\n\n◆ "
+            "It spreads easily through droplets from coughs or sneezes.\n\n◆ "
+            "Symptoms include fever, chills, cough, sore throat, body aches, and fatigue.\n\n◆ "
+            "Flu can lead to complications like pneumonia, bronchitis, and sinus infections."},
+    {"COVID-19", "◆ COVID-19 is caused by SARS-CoV-2, leading to respiratory issues.\n\n◆ "
+                 "It can spread through close contact or airborne transmission.\n\n◆ "
+                 "Common symptoms include fever, dry cough, and difficulty breathing.\n\n◆ "
+                 "Severe cases can lead to respiratory failure and death, particularly in the elderly."},
+    {"Diabetes", "◆ Diabetes is a chronic condition that affects how your body processes blood sugar.\n\n◆"
+                 " It can lead to serious complications like heart disease and nerve damage.\n\n◆ "
+                 "There are two main types: Type 1 (insulin-dependent) and Type 2 (insulin resistance).\n\n◆ "
+                 "Uncontrolled diabetes can result in kidney damage, vision loss, and amputations."},
+    {"Hypertension", "◆ Hypertension is high blood pressure that increases the risk of heart disease.\n\n◆"
+                     " It often has no symptoms but can lead to severe health problems over time.\n\n◆ "
+                     "If left untreated, hypertension can lead to heart attack, stroke, and kidney disease.\n\n◆ "
+                     "It is often referred to as the 'silent killer' because of its lack of symptoms."},
+    {"Cancer", "◆ Cancer is a group of diseases involving abnormal cell growth.\n\n◆ "
+               "It can affect any part of the body and may spread to other tissues.\n\n◆ "
+               "Common types include breast cancer, lung cancer, prostate cancer, and colorectal cancer.\n\n◆ "
+               "Risk factors include smoking, excessive alcohol consumption, and a family history of cancer."},
+    {"Asthma", "◆ Asthma is a condition in which your airways narrow and swell, producing extra mucus.\n\n◆ "
+               "It can cause difficulty breathing and wheezing.\n\n◆ "
+               "Triggers include allergens, respiratory infections, exercise, and cold air.\n\n◆ "
+               "Asthma attacks can be life-threatening if not managed properly."},
+    {"Alzheimer’s disease", "◆ Alzheimer’s disease is a progressive neurological disorder that causes brain cells to"
+                            " die.\n\n◆ It leads to memory loss and cognitive decline.\n\n◆ "
+                            "Symptoms include confusion, difficulty remembering recent events, and trouble speaking."
+                            "\n\n◆ Alzheimer’s is the most common cause of dementia in the elderly."},
 };
+
+
 
 
 constexpr short kWindowSize = 1600;
