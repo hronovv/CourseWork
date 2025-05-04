@@ -1,37 +1,104 @@
 #include "startwidget.h"
 
 StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
+    auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setAlignment(Qt::AlignLeft);
+    mainLayout->setSpacing(kStartMenuSpacing);
 
-    auto* gridLayout = new QGridLayout(this);
-    gridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    auto* pregameGridLayout = new QGridLayout();
+    pregameGridLayout->setContentsMargins(kStartMenuLeftRightMargins,kStartMenuTopBottomMargins,
+        kStartMenuLeftRightMargins,kStartMenuTopBottomMargins);
+    pregameGridLayout->setSpacing(kStartMenuLayoutSpacing);
+    pregameGridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
-    auto* humanLabel_ = new QLabel(this);
+    auto* startConfigurationLabel = new QLabel("Initial Conditions",this);
+    startConfigurationLabel->setAlignment(Qt::AlignCenter);
+    startConfigurationLabel->setStyleSheet(labelHeaderStyle);
+    pregameGridLayout->addWidget(startConfigurationLabel,0,0);
+
+    auto* humanLabel = new QLabel(this);
     QPixmap pixmap("/Users/hronov/Documents/CourseWork/img/male_female.png");
     pixmap.setDevicePixelRatio(devicePixelRatioF());
-    humanLabel_->setPixmap(pixmap.scaled(500, 700, Qt::KeepAspectRatio, Qt::SmoothTransformation));;
-    gridLayout->addWidget(humanLabel_, 0, 0);  // Place image across two columns
+    humanLabel->setPixmap(pixmap.scaled(kMaleFemaleLabelWidth, kMaleFemaleLabelHeight, Qt::KeepAspectRatio,
+        Qt::SmoothTransformation));;
+    pregameGridLayout->addWidget(humanLabel, 1, 0);
 
     auto* genderLabel = new QLabel("Gender:", this);
     genderLabel->setStyleSheet(labelTextStyle);
-    gridLayout->addWidget(genderLabel, 1, 0);
+    pregameGridLayout->addWidget(genderLabel, 2, 0);
 
-    QComboBox* genderComboBox = new QComboBox(this);
-    genderComboBox->addItem("Male");
-    genderComboBox->addItem("Female");
-    gridLayout->addWidget(genderComboBox, 2, 0);
+    auto* genderComboBox = new QComboBox(this);
+    genderComboBox->addItems({"Male", "Female"});
+    pregameGridLayout->addWidget(genderComboBox, 3, 0);
+
+    auto* difficultyLabel = new QLabel("Difficulty:", this);
+    difficultyLabel->setStyleSheet(labelTextStyle);
+    pregameGridLayout->addWidget(difficultyLabel, 4, 0);
+
+    auto* difficultyComboBox = new QComboBox(this);
+    difficultyComboBox->addItems({"Easy", "Medium", "Hard"});
+    pregameGridLayout->addWidget(difficultyComboBox, 5, 0);
+
+    auto* diseaseLabel = new QLabel("Disease:",this);
+    diseaseLabel->setStyleSheet(labelTextStyle);
+    pregameGridLayout->addWidget(diseaseLabel, 6, 0);
+
+    auto* diseaseComboBox = new QComboBox(this);
+    diseaseComboBox->addItems({
+        "Flu",
+        "COVID-19",
+        "Diabetes",
+        "Hypertension",
+        "Cancer",
+        "Asthma",
+        "Alzheimer’s disease"
+    });
+    pregameGridLayout->addWidget(diseaseComboBox,7,0);
+
+    auto* ageLabel = new QLabel("Age group:", this);
+    ageLabel->setStyleSheet(labelTextStyle);
+    pregameGridLayout->addWidget(ageLabel, 8, 0);
+
+    auto* ageComboBox = new QComboBox(this);
+    ageComboBox->addItems({"Child", "Teenager", "Adult", "Elderly"});
+    pregameGridLayout->addWidget(ageComboBox, 9, 0);
+
 
     sideEffectsLabel_ = new QLabel(this);
-    gridLayout->addWidget(sideEffectsLabel_, 3, 0);
+    pregameGridLayout->addWidget(sideEffectsLabel_, 10, 0);
 
     auto* backButton = new QPushButton("Back to Menu", this);
     backButton->setStyleSheet(buttonStyle);
-    gridLayout->addWidget(backButton, 4, 0);
+    pregameGridLayout->addWidget(backButton, 11, 0);
+
+    auto* line = new QFrame(this);
+    line->setFrameShape(QFrame::VLine);
+    line->setStyleSheet(StartLayoutLineStyle);
+    line->setFixedWidth(kStartMenuLineWidth);
+
+    auto* simulationGridLayout = new QGridLayout();
+    simulationGridLayout->setContentsMargins(kStartMenuLeftRightMargins, kStartMenuTopBottomMargins,
+        kStartMenuLeftRightMargins, kStartMenuTopBottomMargins);
+    simulationGridLayout->setSpacing(kStartMenuSpacing);
+    simulationGridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+
+    auto* simulationSettingsLabel = new QLabel("Simulation Settings",this);
+    simulationSettingsLabel->setAlignment(Qt::AlignCenter);
+    simulationSettingsLabel->setStyleSheet(labelHeaderStyle);
+    simulationGridLayout->addWidget(simulationSettingsLabel,0,0);
+
 
     connect(backButton, &QPushButton::clicked, this, [this]() {
         emit backButtonClicked();
     });
 
-    setLayout(gridLayout);
+
+
+    mainLayout->addLayout(pregameGridLayout);
+    mainLayout->addWidget(line);
+    mainLayout->addLayout(simulationGridLayout);
+    setLayout(mainLayout);
 }
 
 void StartWidget::updateSideEffectsStatus(bool sideEffectsEnabled) {

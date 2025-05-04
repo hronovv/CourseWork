@@ -36,10 +36,21 @@ const QString labelTextStyle = R"(
     color: #FFFFFF;  /* Белый цвет текста */
 )";
 
+const QString labelHeaderStyle = R"(
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;  /* Белый цвет текста */
+)";
+
+
 const QString textEditStyle = R"(
     font-size: 17px;
     background-color: #FFFFFF;  /* Белый фон для текстовых полей */
     color: #2E2E2E;  /* Темный текст */
     border: 2px solid #D8CFC4;  /* Бежевый цвет рамки */
     border-radius: 5px;
+)";
+
+const QString StartLayoutLineStyle = R"(
+    background-color: white;
 )";
