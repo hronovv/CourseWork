@@ -21,6 +21,9 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
     pixmap.setDevicePixelRatio(devicePixelRatioF());
     humanLabel->setPixmap(pixmap.scaled(kMaleFemaleLabelWidth, kMaleFemaleLabelHeight, Qt::KeepAspectRatio,
         Qt::SmoothTransformation));;
+    humanLabel->setStyleSheet(humanLabelStyle);
+
+
     pregameGridLayout->addWidget(humanLabel, 1, 0);
 
     auto* genderLabel = new QLabel("Gender:", this);
@@ -29,6 +32,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
 
     auto* genderComboBox = new QComboBox(this);
     genderComboBox->addItems({"Male", "Female"});
+    genderComboBox->setStyleSheet(comboBoxStyle);
     pregameGridLayout->addWidget(genderComboBox, 3, 0);
 
     auto* difficultyLabel = new QLabel("Difficulty:", this);
@@ -37,6 +41,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
 
     auto* difficultyComboBox = new QComboBox(this);
     difficultyComboBox->addItems({"Easy", "Medium", "Hard"});
+    difficultyComboBox->setStyleSheet(comboBoxStyle);
     pregameGridLayout->addWidget(difficultyComboBox, 5, 0);
 
     auto* diseaseLabel = new QLabel("Disease:",this);
@@ -53,6 +58,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
         "Asthma",
         "Alzheimer’s disease"
     });
+    diseaseComboBox->setStyleSheet(comboBoxStyle);
     pregameGridLayout->addWidget(diseaseComboBox,7,0);
 
     auto* ageLabel = new QLabel("Age group:", this);
@@ -61,6 +67,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
 
     auto* ageComboBox = new QComboBox(this);
     ageComboBox->addItems({"Child", "Teenager", "Adult", "Elderly"});
+    ageComboBox->setStyleSheet(comboBoxStyle);
     pregameGridLayout->addWidget(ageComboBox, 9, 0);
 
 
@@ -83,7 +90,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
     simulationGridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
 
-    auto* simulationSettingsLabel = new QLabel("Simulation Settings",this);
+    auto* simulationSettingsLabel = new QLabel("About Disease",this);
     simulationSettingsLabel->setAlignment(Qt::AlignCenter);
     simulationSettingsLabel->setStyleSheet(labelHeaderStyle);
     simulationGridLayout->addWidget(simulationSettingsLabel,0,0);

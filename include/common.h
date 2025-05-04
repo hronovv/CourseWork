@@ -17,6 +17,7 @@
 #include <QLabel>
 #include <QComboBox>
 #include <iostream>
+#include "QFontDatabase"
 #include <memory>
 
 
