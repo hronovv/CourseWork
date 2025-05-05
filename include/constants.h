@@ -1,5 +1,6 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
+
 /*
  * This file contains all constant values that are needed for the course work
 */
