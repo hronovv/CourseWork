@@ -1,2 +1,6 @@
 # CourseWork
-Simulation of diseases in the human body
+
+This is a course work on my 1st semester in BSUIR(Speciality: Computer science and programming technologies)
+
+Languages: C++/Qt
+
