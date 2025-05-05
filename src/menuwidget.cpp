@@ -27,26 +27,37 @@ MenuWidget::MenuWidget(QWidget *parent) : QWidget(parent) {
     contentLayout->addWidget(line);
 
     auto* buttonLayout = new QVBoxLayout();
+    buttonLayout->setSpacing(kMenuLayoutButtonSpacing);
     buttonLayout->setAlignment(Qt::AlignTop);
 
     auto* settingsButton = new QPushButton("Pro settings⚙️", this);
     settingsButton->setFixedSize(kSettingsButtonWidth, kSettingsButtonHeight);
     settingsButton->setStyleSheet(buttonStyle);
-    buttonLayout->addWidget(settingsButton);
+
 
     auto* startButton = new QPushButton("Start🧬️", this);
     startButton->setFixedSize(kSettingsButtonWidth, kSettingsButtonHeight);
     startButton->setStyleSheet(buttonStyle);
-    buttonLayout->addWidget(startButton);
 
+    auto* tutorialButton = new QPushButton("Tutorial📚", this);
+    tutorialButton->setFixedSize(kSettingsButtonWidth, kSettingsButtonHeight);
+    tutorialButton->setStyleSheet(buttonStyle);
+
+    auto* authorButton = new QPushButton("Creator✍️", this);
+    authorButton->setFixedSize(kSettingsButtonWidth, kSettingsButtonHeight);
+    authorButton->setStyleSheet(buttonStyle);
+
+
+    buttonLayout->addWidget(startButton);
+    buttonLayout->addWidget(tutorialButton);
+    buttonLayout->addWidget(settingsButton);
+    buttonLayout->addWidget(authorButton);
     contentLayout->addLayout(buttonLayout);
     menuLayout->addLayout(contentLayout);
 
-    connect(settingsButton, &QPushButton::clicked, this, [this]() {
-        emit settingsButtonClicked();
-    });
+    connect(settingsButton, &QPushButton::clicked, this, &MenuWidget::settingsButtonClicked);
+    connect (startButton, &QPushButton::clicked, this, &MenuWidget::startButtonClicked);
+    connect(authorButton, &QPushButton::clicked, this, &MenuWidget::authorButtonClicked);
+    connect(tutorialButton, &QPushButton::clicked, this, &MenuWidget::tutorialButtonClicked);
 
-    connect(startButton, &QPushButton::clicked, this, [this]() {
-        emit startButtonClicked();
-    });
 }

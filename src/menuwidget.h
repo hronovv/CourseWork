@@ -14,6 +14,8 @@ public:
     signals:
         void settingsButtonClicked();
         void startButtonClicked();
+        void authorButtonClicked();
+        void tutorialButtonClicked();
 };
 
 

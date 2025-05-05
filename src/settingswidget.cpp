@@ -26,9 +26,8 @@ SettingsWidget::SettingsWidget(QWidget *parent) : QWidget(parent) {
 
     settingsLayout->addWidget(backButton);
 
-    connect(backButton, &QPushButton::clicked, this, [this]() {
-        emit backButtonClicked();
-    });
+
+    connect(backButton, &QPushButton::clicked, this, &SettingsWidget::backButtonClicked);
 
     settingsLayout->setAlignment(Qt::AlignTop | Qt::AlignCenter);
 }

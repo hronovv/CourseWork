@@ -23,6 +23,9 @@ constexpr const char* pictureLabelStyle = R"(
     }
 )";
 
+constexpr const char* authorDescription = "This is me.\nMy name is Ivan Bazan";
+
+
 const QMap<QString, QString> diseaseImages = {
     {"Flu", "/Users/hronov/Documents/CourseWork/img/flu.png"},
     {"COVID-19", "/Users/hronov/Documents/CourseWork/img/covid-19.png"},
@@ -82,5 +85,6 @@ constexpr short kDiseaseLabelWidth = 255;
 constexpr short kDiseaseLabelHeight = 255;
 constexpr short kStartMenuLineWidth = 4;
 constexpr short kMenuLayoutSpacing = 100;
+constexpr short kMenuLayoutButtonSpacing = 30;
 
 #endif //CONSTANTS_H

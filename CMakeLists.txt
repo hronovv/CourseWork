@@ -27,7 +27,9 @@ add_executable(CourseWork src/main.cpp
         src/stackedwidget.cpp
         src/stackedwidget.h
         src/startwidget.cpp
-        src/startwidget.h)
+        src/startwidget.h
+        src/authorwidget.cpp
+        src/authorwidget.h)
 target_link_libraries(CourseWork
   Qt::Core
   Qt::Gui

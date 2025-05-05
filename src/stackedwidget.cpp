@@ -4,10 +4,12 @@ StackedWidget::StackedWidget(QWidget *parent) : QStackedWidget(parent) {
     menuWidget_ = std::make_unique<MenuWidget>(this);
     settingsWidget_ = std::make_unique<SettingsWidget>(this);
     startWidget_ = std::make_unique<StartWidget>(this);
+    authorWidget_ = std::make_unique<AuthorWidget>(this);
 
     addWidget(menuWidget_.get());
     addWidget(settingsWidget_.get());
     addWidget(startWidget_.get());
+    addWidget(authorWidget_.get());
 
     setCurrentWidget(menuWidget_.get());
 
@@ -29,6 +31,16 @@ StackedWidget::StackedWidget(QWidget *parent) : QStackedWidget(parent) {
     });
 
     connect(startWidget_.get(), &StartWidget::backButtonClicked, this, [this]() {
+        animateWidgetTransition(menuWidget_.get());
+        setCurrentWidget(menuWidget_.get());
+    });
+
+    connect(menuWidget_.get(), &MenuWidget::authorButtonClicked, this, [this]() {
+        animateWidgetTransition(authorWidget_.get());
+        setCurrentWidget(authorWidget_.get());
+    });
+
+    connect(authorWidget_.get(), &AuthorWidget::backButtonClicked, this, [this]() {
         animateWidgetTransition(menuWidget_.get());
         setCurrentWidget(menuWidget_.get());
     });

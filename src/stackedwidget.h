@@ -7,6 +7,7 @@
 #include "menuwidget.h"
 #include "settingswidget.h"
 #include "startwidget.h"
+#include "authorwidget.h"
 
 class StackedWidget : public QStackedWidget {
     Q_OBJECT
@@ -20,6 +21,7 @@ private:
     std::unique_ptr<MenuWidget> menuWidget_;
     std::unique_ptr<SettingsWidget> settingsWidget_;
     std::unique_ptr<StartWidget> startWidget_;
+    std::unique_ptr<AuthorWidget> authorWidget_;
 };
 
 #endif // STACKEDWIDGET_H

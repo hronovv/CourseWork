@@ -1,5 +1,7 @@
 #include "startwidget.h"
 
+#include "menuwidget.h"
+
 StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setAlignment(Qt::AlignLeft);
@@ -107,11 +109,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
     diseaseDescriptionLabel->setStyleSheet(labelTextStyle);
     simulationLayout->addWidget(diseaseDescriptionLabel);
 
-
-    connect(backButton, &QPushButton::clicked, this, [this]() {
-        emit backButtonClicked();
-    });
-
+    connect(backButton, &QPushButton::clicked, this, &StartWidget::backButtonClicked);
     mainLayout->addLayout(pregameLayout);
     mainLayout->addWidget(line);
     mainLayout->addLayout(simulationLayout);
