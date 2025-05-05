@@ -56,7 +56,7 @@ const QString textEditStyle = R"(
     border-radius: 5px;
 )";
 
-const QString StartLayoutLineStyle = R"(
+const QString LineStyle = R"(
     background-color: white;
 )";
 

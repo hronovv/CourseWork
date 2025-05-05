@@ -23,7 +23,7 @@ MenuWidget::MenuWidget(QWidget *parent) : QWidget(parent) {
     auto* line = new QFrame(this);
     line->setFrameShape(QFrame::VLine);
     line->setStyleSheet("background-color: white;");
-    line->setFixedWidth(kStartMenuLineWidth);
+    line->setFixedWidth(kLineWidth);
     contentLayout->addWidget(line);
 
     auto* buttonLayout = new QVBoxLayout();

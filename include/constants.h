@@ -5,16 +5,17 @@
 */
 
 constexpr const char* kCourseWorkName = "Simulation of diseases in the human body";
+
 constexpr const char* kDescription =
     "Step into the body and take control!\n\n"
-    "This simulation lets you explore how diseases like flu, diabetes, or cancer impact the human body\n"
+    "Simulation lets you explore how diseases like flu, diabetes, or cancer impact the human body "
     "based on age, gender, and difficulty level.\n\n"
     "Make real-time decisions, manage treatments, and deal with unpredictable side effects of medications.\n"
     "Watch as the body fights back — or breaks down — based on your strategy.\n\n"
-    "It's an immersive, gamified journey through health, illness, and recovery that reveals\n"
+    "It's an immersive, gamified journey through health, illness, and recovery, that reveals\n"
     "just how complex and fascinating the human body really is.";
 
-constexpr const char* pictureLabelStyle = R"(
+constexpr const char* kPictureLabelStyle = R"(
     QLabel {
         border: 2px solid #9E7B52;
         border-radius: 10px;
@@ -23,10 +24,17 @@ constexpr const char* pictureLabelStyle = R"(
     }
 )";
 
-constexpr const char* authorDescription = "This is me.\nMy name is Ivan Bazan";
+constexpr const char* kAuthorWelcoming = "About creator";
+constexpr const char* kAuthorDescription =
+    "Name: Ivan Bazan\n\n"
+    "University: BSUIR\n\n"
+    "Faculty: Computer Systems and Networks\n\n"
+    "Specialty: Computer Science and Programming Technologies\n\n"
+    "Year: 1st";
 
 
-const QMap<QString, QString> diseaseImages = {
+
+const QMap<QString, QString> kDiseaseImages = {
     {"Flu", "/Users/hronov/Documents/CourseWork/img/flu.png"},
     {"COVID-19", "/Users/hronov/Documents/CourseWork/img/covid-19.png"},
     {"Diabetes", "/Users/hronov/Documents/CourseWork/img/diabetes.png"},
@@ -36,7 +44,7 @@ const QMap<QString, QString> diseaseImages = {
     {"Alzheimer’s disease", "/Users/hronov/Documents/CourseWork/img/alzheimer.png"},
 };
 
-const QMap<QString, QString> diseaseDescriptions = {
+const QMap<QString, QString> kDiseaseDescriptions = {
     {"Flu", "◆ Flu is a contagious respiratory illness caused by influenza viruses.\n\n◆ "
             "It spreads easily through droplets from coughs or sneezes.\n\n◆ "
             "Symptoms include fever, chills, cough, sore throat, body aches, and fatigue.\n\n◆ "
@@ -79,11 +87,12 @@ constexpr short kStartMenuSpacing = 60;
 constexpr short kStartMenuLeftRightMargins = 5;
 constexpr short kStartMenuTopBottomMargins = 15;
 constexpr short kStartMenuLayoutSpacing = 15;
+constexpr short kAuthorMenuLayoutSpacing = 150;
 constexpr short kMaleFemaleLabelWidth = 500;
 constexpr short kMaleFemaleLabelHeight = 600;
 constexpr short kDiseaseLabelWidth = 255;
 constexpr short kDiseaseLabelHeight = 255;
-constexpr short kStartMenuLineWidth = 4;
+constexpr short kLineWidth = 4;
 constexpr short kMenuLayoutSpacing = 100;
 constexpr short kMenuLayoutButtonSpacing = 30;
 

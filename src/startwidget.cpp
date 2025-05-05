@@ -23,7 +23,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
     pixmap.setDevicePixelRatio(devicePixelRatioF());
     humanLabel->setPixmap(pixmap.scaled(kMaleFemaleLabelWidth, kMaleFemaleLabelHeight, Qt::KeepAspectRatio,
         Qt::SmoothTransformation));;
-    humanLabel->setStyleSheet(pictureLabelStyle);
+    humanLabel->setStyleSheet(kPictureLabelStyle);
 
 
     pregameLayout->addWidget(humanLabel);
@@ -82,8 +82,13 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
 
     auto* line = new QFrame(this);
     line->setFrameShape(QFrame::VLine);
-    line->setStyleSheet(StartLayoutLineStyle);
-    line->setFixedWidth(kStartMenuLineWidth);
+    line->setStyleSheet(LineStyle);
+    line->setFixedWidth(kLineWidth);
+
+    auto* line1 = new QFrame(this);
+    line1->setFrameShape(QFrame::VLine);
+    line1->setStyleSheet(LineStyle);
+    line1->setFixedWidth(kLineWidth);
 
     auto* simulationLayout = new QVBoxLayout();
     simulationLayout->setContentsMargins(kStartMenuLeftRightMargins, kStartMenuTopBottomMargins,
@@ -100,7 +105,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
     auto* diseaseImageLabel = new QLabel(this);
     diseaseImageLabel->setFixedSize(kDiseaseLabelWidth, kDiseaseLabelHeight);
     diseaseImageLabel->setScaledContents(true);
-    diseaseImageLabel->setStyleSheet(pictureLabelStyle);
+    diseaseImageLabel->setStyleSheet(kPictureLabelStyle);
     simulationLayout->addWidget(diseaseImageLabel);
 
     auto* diseaseDescriptionLabel = new QLabel(this);
@@ -113,18 +118,19 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
     mainLayout->addLayout(pregameLayout);
     mainLayout->addWidget(line);
     mainLayout->addLayout(simulationLayout);
+    mainLayout->addWidget(line1);
     setLayout(mainLayout);
 
 
     diseaseComboBox->setCurrentText("Flu");
-    QPixmap pixmap_default(diseaseImages.value("Flu"));
+    QPixmap pixmap_default(kDiseaseImages.value("Flu"));
     diseaseImageLabel->setPixmap(pixmap_default);
-    diseaseDescriptionLabel->setText(diseaseDescriptions.value("Flu"));
+    diseaseDescriptionLabel->setText(kDiseaseDescriptions.value("Flu"));
 
     connect(diseaseComboBox, &QComboBox::currentTextChanged, this, [=](const QString& disease) {
-        QPixmap capture_pixmap(diseaseImages.value(disease));
+        QPixmap capture_pixmap(kDiseaseImages.value(disease));
         diseaseImageLabel->setPixmap(capture_pixmap);
-        diseaseDescriptionLabel->setText(diseaseDescriptions.value(disease));
+        diseaseDescriptionLabel->setText(kDiseaseDescriptions.value(disease));
     });
 
 
