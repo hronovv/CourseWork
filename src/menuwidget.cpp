@@ -5,7 +5,7 @@ MenuWidget::MenuWidget(QWidget *parent) : QWidget(parent) {
     menuLayout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     menuLayout->setSpacing(kMenuLayoutSpacing);
 
-    auto* mainSimulationLabel = new QLabel("Welcome to the simulator of diseases!", this);
+    auto* mainSimulationLabel = new QLabel(tr("Welcome to the simulator of diseases!"), this);
     mainSimulationLabel->setStyleSheet(mainLabelStyle);
     mainSimulationLabel->setAlignment(Qt::AlignCenter);
     menuLayout->addWidget(mainSimulationLabel);
@@ -16,7 +16,7 @@ MenuWidget::MenuWidget(QWidget *parent) : QWidget(parent) {
 
     auto* descriptionLabel = new QLabel(this);
     descriptionLabel->setWordWrap(true);
-    descriptionLabel->setText(kDescription);
+    descriptionLabel->setText(tr(kDescription));
     descriptionLabel->setStyleSheet(descriptionTextStyle);
     contentLayout->addWidget(descriptionLabel);
 
@@ -30,23 +30,21 @@ MenuWidget::MenuWidget(QWidget *parent) : QWidget(parent) {
     buttonLayout->setSpacing(kMenuLayoutButtonSpacing);
     buttonLayout->setAlignment(Qt::AlignTop);
 
-    auto* settingsButton = new QPushButton("Pro settings⚙️", this);
+    auto* settingsButton = new QPushButton(tr("Settings⚙️"), this);
     settingsButton->setFixedSize(kSettingsButtonWidth, kSettingsButtonHeight);
     settingsButton->setStyleSheet(buttonStyle);
 
-
-    auto* startButton = new QPushButton("Start🧬️", this);
+    auto* startButton = new QPushButton(tr("Start🧬️"), this);
     startButton->setFixedSize(kSettingsButtonWidth, kSettingsButtonHeight);
     startButton->setStyleSheet(buttonStyle);
 
-    auto* tutorialButton = new QPushButton("Tutorial📚", this);
+    auto* tutorialButton = new QPushButton(tr("Tutorial📚"), this);
     tutorialButton->setFixedSize(kSettingsButtonWidth, kSettingsButtonHeight);
     tutorialButton->setStyleSheet(buttonStyle);
 
-    auto* authorButton = new QPushButton("Creator✍️", this);
+    auto* authorButton = new QPushButton(tr("Creator✍️"), this);
     authorButton->setFixedSize(kSettingsButtonWidth, kSettingsButtonHeight);
     authorButton->setStyleSheet(buttonStyle);
-
 
     buttonLayout->addWidget(startButton);
     buttonLayout->addWidget(tutorialButton);
@@ -59,5 +57,4 @@ MenuWidget::MenuWidget(QWidget *parent) : QWidget(parent) {
     connect (startButton, &QPushButton::clicked, this, &MenuWidget::startButtonClicked);
     connect(authorButton, &QPushButton::clicked, this, &MenuWidget::authorButtonClicked);
     connect(tutorialButton, &QPushButton::clicked, this, &MenuWidget::tutorialButtonClicked);
-
 }

@@ -9,7 +9,7 @@ SettingsWidget::SettingsWidget(QWidget *parent) : QWidget(parent) {
 
     auto* gridLayout = new QGridLayout();
 
-    side_effects_from_medications_ = new QCheckBox("Enable side effects from medications");
+    auto* side_effects_from_medications_ = new QCheckBox("Enable side effects from medications");
     auto* checkBox2 = new QCheckBox("Option 2");
     auto* checkBox3 = new QCheckBox("Option 3");
     auto* checkBox4 = new QCheckBox("Option 4");
@@ -30,8 +30,4 @@ SettingsWidget::SettingsWidget(QWidget *parent) : QWidget(parent) {
     connect(backButton, &QPushButton::clicked, this, &SettingsWidget::backButtonClicked);
 
     settingsLayout->setAlignment(Qt::AlignTop | Qt::AlignCenter);
-}
-
-bool SettingsWidget::isSideEffectsEnabled() const {
-    return side_effects_from_medications_->isChecked();
 }

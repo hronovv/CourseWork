@@ -27,7 +27,7 @@ AuthorWidget::AuthorWidget(QWidget *parent) : QWidget(parent) {
     menuLayout->addLayout(infoLayout);
     menuLayout->addStretch();
 
-    auto* backButton = new QPushButton("Back to Menu", this);
+    auto* backButton = new QPushButton(tr("Back to Menu"), this);
     backButton->setStyleSheet(buttonStyle);
     menuLayout->addWidget(backButton, 0, Qt::AlignHCenter);
 

@@ -6,6 +6,7 @@
 */
 
 #include <QApplication>
+#include <QTranslator>
 #include <QPushButton>
 #include <QCheckBox>
 #include <QPropertyAnimation>

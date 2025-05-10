@@ -11,12 +11,8 @@ class SettingsWidget : public QWidget {
 public:
     explicit SettingsWidget(QWidget *parent = nullptr);
 
-    bool isSideEffectsEnabled() const;
-
     signals:
         void backButtonClicked();
-private:
-    QCheckBox* side_effects_from_medications_;
 };
 
 #endif // SETTINGSWIDGET_H

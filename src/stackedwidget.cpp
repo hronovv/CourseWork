@@ -25,7 +25,6 @@ StackedWidget::StackedWidget(QWidget *parent) : QStackedWidget(parent) {
     });
 
     connect(menuWidget_.get(), &MenuWidget::startButtonClicked, this, [this]() {
-        startWidget_->updateSideEffectsStatus(settingsWidget_->isSideEffectsEnabled());
         animateWidgetTransition(startWidget_.get());
         setCurrentWidget(startWidget_.get());
     });

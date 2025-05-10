@@ -74,7 +74,7 @@ StartWidget::StartWidget(QWidget *parent) : QWidget(parent) {
 
 
     sideEffectsLabel_ = new QLabel(this);
-    pregameLayout->addWidget(sideEffectsLabel_);
+    // pregameLayout->addWidget(sideEffectsLabel_);
 
     auto* backButton = new QPushButton("Back to Menu", this);
     backButton->setStyleSheet(buttonStyle);
