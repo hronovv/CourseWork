@@ -6,6 +6,5 @@ int main(int argc, char *argv[]) {
     window.setWindowTitle(kCourseWorkName);
     window.resize(kWindowSize, kWindowSize);
     window.show();
-
     return a.exec();
 }
